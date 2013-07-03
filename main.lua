@@ -4,8 +4,8 @@
 --
 
 local widget = require "widget"
-local cbdata = require "plugins.chartboostdata"
-local cb = require "plugins.chartboost"
+local cbdata = require "ChartboostSDK.chartboostdata"
+local cb = require "ChartboostSDK.chartboost"
 
 local background
 local onOrientationChange = function(orientation)
