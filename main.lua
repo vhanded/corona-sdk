@@ -4,8 +4,8 @@
 --
 
 local widget = require "widget"
-local cbdata = require "ChartboostSDK.chartboostdata"
 local cb = require "ChartboostSDK.chartboost"
+local cbdata = require "ChartboostSDK.chartboostdata"
 
 local background
 local onOrientationChange = function(orientation)
@@ -47,7 +47,7 @@ cb.create{appId = appId,
     appBundle = "com.chartboost.cbtest"}
 cb.startSession()
 
---[[ -- test the special sdk data methods
+-- test the special sdk data methods
 cbdata.cacheInterstitialData("Default", function(response)
     local ad_id = response["ad_id"]
     local link = response.link
@@ -60,12 +60,13 @@ cbdata.cacheInterstitialData("Default", function(response)
 end, function(error)
     print("Error requesting: "..error)
 end)
---]]
 
 local showAd = widget.newButton{
     id = "showAd",
     left = 24, top = 24,
+    width = 136, height = 44,
     label = "Show Interstitial",
+    fontSize = 14,
     onRelease = function()
         local msg = "Chartboost: Loading Interstitial"
         if cb.hasCachedInterstitial() then
@@ -80,7 +81,9 @@ local showAd = widget.newButton{
 local cacheAd = widget.newButton{
     id = "cacheAd",
     left = 24, top = 72,
+    width = 136, height = 44,
     label = "Preload Interstitial",
+    fontSize = 14,
     onRelease = function()
         print("Chartboost: Caching Interstitial")
         cb.cacheInterstitial()
@@ -91,7 +94,9 @@ local cacheAd = widget.newButton{
 local showMore = widget.newButton{
     id = "showMore",
     left = 172, top = 24,
+    width = 136, height = 44,
     label = "Show More Apps",
+    fontSize = 14,
     onRelease = function()
         local msg = "Chartboost: Loading More Apps"
         if cb.hasCachedMoreApps() then
@@ -106,7 +111,9 @@ local showMore = widget.newButton{
 local cacheAd = widget.newButton{
     id = "cacheMore",
     left = 172, top = 72,
+    width = 136, height = 44,
     label = "Preload More Apps",
+    fontSize = 14,
     onRelease = function()
         print("Chartboost: Caching More Apps")
         cb.cacheMoreApps()
@@ -117,7 +124,9 @@ local cacheAd = widget.newButton{
 local clearPreload = widget.newButton{
     id = "clearPreload",
     left = 24, top = 120,
+    width = 136, height = 44,
     label = "Clear Preload Data",
+    fontSize = 14,
     onRelease = function()
         print("Chartboost: Clearing preload ad data")
         cb.clearCache()
@@ -129,7 +138,9 @@ local clearPreload = widget.newButton{
 local recordPurchase = widget.newButton{
     id = "recordPurchase",
     left = 172, top = 120,
+    width = 136, height = 44,
     label = "Record Purchase",
+    fontSize = 14,
     onRelease = function()
         print("Chartboost: Purchase Clicked!")
         local meta = {fakemeta1 = 5, fakemeta2 = "string"}
@@ -142,7 +153,9 @@ local recordPurchase = widget.newButton{
 local trackEvent = widget.newButton{
     id = "trackEvent",
     left = 24, top = 168,
+    width = 136, height = 44,
     label = "Track Event",
+    fontSize = 14,
     onRelease = function()
         print("Chartboost: Track Event Clicked!")
         local meta = {fakeeventmeta1 = 5, fakeeventmeta2 = "string"}
@@ -164,8 +177,9 @@ local orientation
 orientation = widget.newButton{
     id = "orientation",
     left = 24, top = 216,
-    width = 272,
+    width = 272, height = 44,
     label = "Forced Orientation: None",
+    fontSize = 14,
     onRelease = function()
         forcedOrient = orientCycle[forcedOrient]
         orientation:setLabel("Forced Orientation: " .. forcedOrient.printName)
