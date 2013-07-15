@@ -12,9 +12,7 @@ __IMPORTANT:__ This is a beta build! Please test thoroughly before releasing! Yo
 
 #### iOS
 
-Things to note:
-
-* This will only work for iOS 6.0+. This restriction needs to be set in all publishign and advertising campaigns on the dashboard.
+This will only work for iOS 6.0+. This OS restriction needs to be set in all publishing and advertising campaigns on the Chartboost dashboard.
 
 #### Android
 
