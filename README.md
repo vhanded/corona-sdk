@@ -19,14 +19,15 @@ Requirements:
 ---
 ###Basic Integration: Quick Start Guide
 
-1. Add `chartboost.lua` to your project (in the root or any sub-directory)
-2. Import the Chartboost SDK into any source file that uses Chartboost, and set an instance variable. No matter where you get the Chartboost instance, it will be the same exact object. Importing the library will not pollute the `globals` table at all.
+To get started, add `chartboost.lua` to your project (in the root or any sub-directory).
+
+Next, import the Chartboost SDK into any source file that uses Chartboost, and set an instance variable. No matter where you get the Chartboost instance, it will be the same exact object. Importing the library will not pollute the `globals` table at all.
 
 ```lua
 local cb = require "chartboost"
 ```
 
-3. Add the following to the section of your code where you initialize things:
+After that, add the following to the section of your code where you initialize things:
 
 ```lua 
 -- Initialize Chartboost
@@ -42,7 +43,7 @@ cb.startSession()
 cb.showInterstitial() 
 ```
 
-4. For more granular control over Chartboost, pass in a table of functions as the delegate in the `create` method above. The following is a complete delegate table. The methods are all optional &mdash; you'll only need to implement the ones your game will use. (Each method below that returns a boolean defaults to `true` if no function is provided.)
+For more granular control over Chartboost, pass in a table of functions as the delegate in the `create` method above. The following is a complete delegate table. The methods are all optional &mdash; you'll only need to implement the ones your game will use. (Each method below that returns a boolean defaults to `true` if no function is provided.)
 
 ```lua
 local delegate = {
@@ -67,8 +68,8 @@ local delegate = {
 }
 ```
 
-5. There are a number of actions that the Chartboost SDK can perform.  The following code demonstrates them all:
- 
+There are a number of actions that the Chartboost SDK can perform.  The following code demonstrates them all:
+
 ```lua
 -- notify the beginning of a user session
 cb.startSession()
