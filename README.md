@@ -1,6 +1,10 @@
 corona-sdk
 ==========
 
+##### 2013-07-18 Update
+
+* __IMPORTANT__: A bug that broke OS version targeting for iPhone builds is now fixed. Publishers with iPhone builds should update as soon as possible so they can properly target only iOS 6.0+ in their campaigns!
+
 ##### 2013-07-15 Update
 
 * The more apps page is now fixed! 
