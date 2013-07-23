@@ -12,7 +12,7 @@ Requirements:
 - A recent Corona release (public release 2013.1137 or higher)
 - You must create separate apps via [the Chartboost dashboard](https://dashboard.chartboost.com/app/edit) for iOS and Android builds
 - The Corona SDK only works with games running on iOS 6.0+ devices. This OS restriction should be applied to all publishing and advertising campaigns via the Chartboost dashboard.
-- For Android games, **do not** enable the `android.permission.READ_PHONE_STATE` permission
+- For Android games, **do not** enable the `android.permission.READ_PHONE_STATE` permission &mdash; it prevents your game from sending Android IDs to our system
 - The Chartboost start session call, `cb.startSession()`, **must not** be dependent on user actions or any prior network requests
 - The Chartboost start session call, `cb.startSession()`, **must** be called every time your app becomes active (on both hard and &mdash; for iOS games &mdash; soft bootups)
 
