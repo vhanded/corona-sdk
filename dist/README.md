@@ -1,9 +1,5 @@
 The Chartboost SDK is the cornerstone of our network: It provides the functionality for showing ads and More Apps pages, and supplies our analytics system with detailed information about campaign performance. 
 
-###Current Release: 3.2.3
-
-(10-07-2013) The Chartboost Corona SDK is now open sourced! Read about contributing [here](https://github.com/ChartBoost/corona-sdk/wiki/Contributing-to-SDK-Development) and check out known issues [here](https://github.com/ChartBoost/corona-sdk/issues).
-
 ---
 Adding the SDK to your games is quick and easy &mdash; you just need a few ingredients:
 - A Chartboost account
@@ -23,7 +19,7 @@ Requirements:
 ---
 ###Basic Integration: Quick Start Guide
 
-To get started, add `chartboost.lua` to your project (in the root or any sub-directory).
+To get started, add `chartboost.lua`, `chartboost_internal.lua`, and the seven included image files to your project (in the root or any single sub-directory).
 
 Next, import the Chartboost SDK into any source file that uses Chartboost, and set an instance variable. No matter where you get the Chartboost instance, it will be the same exact object. Importing the library will not pollute the `globals` table at all.
 
@@ -38,7 +34,7 @@ After that, add the following to the section of your code where you initialize t
 cb.create{appId = "YOUR_APP_ID",
     appSignature = "YOUR_APP_SIGNATURE",
     delegate = nil,
-    appVersion = "YOUR_APP_VERSION"}
+    appBundle = "YOUR_APP_BUNDLE"} -- ios bundle or android package name
 	
 -- Notify the beginning of a user session
 cb.startSession()

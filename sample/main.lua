@@ -5,7 +5,6 @@
 
 local widget = require "widget"
 local cb = require "ChartboostSDK.chartboost"
-local cbdata = require "ChartboostSDK.chartboostdata"
 
 local background
 local onOrientationChange = function(orientation)
@@ -17,13 +16,16 @@ end
 onOrientationChange()
 Runtime:addEventListener("orientation", onOrientationChange)
 
-local appId = "4f7aa26ef77659d869000003"
-local appSignature = "ee759deefd871ff6e2411c7153dbedefa4aabe38"
+-- Android test app
+local appId = "4f7b433509b6025804000002"
+local appSignature = "dd2d41b69ac01b80f443f5b6cf06096d457f82bd"
+
 local delegate = {
     shouldRequestInterstitial = function(location) print("Chartboost: shouldRequestInterstitial " .. location .. "?"); return true end,
     shouldDisplayInterstitial = function(location) print("Chartboost: shouldDisplayInterstitial " .. location .. "?"); return true end,
     didCacheInterstitial = function(location) print("Chartboost: didCacheInterstitial " .. location); return end,
-    didFailToLoadInterstitial = function(location) print("Chartboost: didFailToLoadInterstitial " .. location); return end,
+    didFailToLoadInterstitial = function(location, error) print("Chartboost: didFailToLoadInterstitial " .. location)
+                    if error then print("    Error: " .. error) end end,
     didDismissInterstitial = function(location) print("Chartboost: didDismissInterstitial " .. location); return end,
     didCloseInterstitial = function(location) print("Chartboost: didCloseInterstitial " .. location); return end,
     didClickInterstitial = function(location) print("Chartboost: didClickInterstitial " .. location); return end,
@@ -31,35 +33,23 @@ local delegate = {
     shouldDisplayLoadingViewForMoreApps = function() return true end,
     shouldRequestMoreApps = function() print("Chartboost: shouldRequestMoreApps"); return true end,
     shouldDisplayMoreApps = function() print("Chartboost: shouldDisplayMoreApps"); return true end,
-    didCacheMoreApps = function() print("Chartboost: didCacheMoreApps"); return end,
-    didFailToLoadMoreApps = function() print("Chartboost: didFailToLoadMoreApps"); return end,
+    didCacheMoreApps = function(error) print("Chartboost: didCacheMoreApps")
+                    if error then print("    Error: " .. error) end end,
+    didFailToLoadMoreApps = function(error) print("Chartboost: didFailToLoadMoreApps: " .. error); return end,
     didDismissMoreApps = function() print("Chartboost: didDismissMoreApps"); return end,
     didCloseMoreApps = function() print("Chartboost: didCloseMoreApps"); return end,
     didClickMoreApps = function() print("Chartboost: didClickMoreApps"); return end,
     didShowMoreApps = function() print("Chartboost: didShowMoreApps"); return end,
-    shouldRequestInterstitialsInFirstSession = function() return true end
+    shouldRequestInterstitialsInFirstSession = function() return true end,
+    didFailToLoadUrl = function(url, error) print("Chartboost:didFailToLoadUrl: " .. tostring(url))
+                    if error then print("    Error: " .. error) end end
 }
 
 cb.create{appId = appId,
     appSignature = appSignature,
     delegate = delegate,
-    appVersion = "1.0",
     appBundle = "com.chartboost.cbtest"}
 cb.startSession()
-
--- test the special sdk data methods
-cbdata.cacheInterstitialData("Default", function(response)
-    local ad_id = response["ad_id"]
-    local link = response.link
-    print ("Success requesting ad: "..tostring(link))
-    cbdata.showInterstitialData(ad_id, function(response)
-        print("Success showing ad "..ad_id)
-    end, function(error)
-        print("Error showing: "..error)
-    end)
-end, function(error)
-    print("Error requesting: "..error)
-end)
 
 local showAd = widget.newButton{
     id = "showAd",
