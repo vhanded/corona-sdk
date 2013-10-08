@@ -2,7 +2,7 @@ The Chartboost SDK is the cornerstone of our network: It provides the functional
 
 ###Current Release: 3.2.3
 
-(10-07-2013) The Chartboost Corona SDK is now open sourced! Read about contributing [here](https://github.com/ChartBoost/corona-sdk/wiki/Contributing-to-SDK-Development) and check out known issues [here](https://github.com/ChartBoost/corona-sdk/issues).
+(10-07-2013) The Chartboost Corona SDK is now mostly open sourced! Read about contributing [here](https://github.com/ChartBoost/corona-sdk/wiki/Contributing-to-SDK-Development) and check out known issues [here](https://github.com/ChartBoost/corona-sdk/issues).
 
 ---
 Adding the SDK to your games is quick and easy &mdash; you just need a few ingredients:
