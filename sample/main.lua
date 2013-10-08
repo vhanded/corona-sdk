@@ -16,7 +16,7 @@ end
 onOrientationChange()
 Runtime:addEventListener("orientation", onOrientationChange)
 
--- Android test app
+-- test app
 local appId = "4f7b433509b6025804000002"
 local appSignature = "dd2d41b69ac01b80f443f5b6cf06096d457f82bd"
 
