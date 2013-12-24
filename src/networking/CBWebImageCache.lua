@@ -129,21 +129,28 @@ local function fileExists(theFile, path)
 end
 
 
-local function getCreativeSize(sequence)
+local function getCreativeSize(fileName, path)
 
-    if display.contentWidth > display.contentHeight then
+    local img = display.newImage(fileName, path)
+    local width = img.width
+    local height = img.height
+    display.remove(img)
+    img = nil
+
+    if width > height then  -- horizontal
         if sequence == 1 then
             return 480, 320
         else
-            return 390, 200    
+            return 390, 200
         end
     else
         if sequence == 1 then
             return 320, 480
         else
-            return 240, 350        
+            return 240, 350
         end
     end
+
 end
 
 
@@ -163,7 +170,7 @@ function CBWebImageCache:readCachedBitmapFromDisk(checksum)
             if sequence == 1 or sequence == 2 then
 
                 -- change to new image rect, and specify size
-                local width, height = getCreativeSize(sequence)
+                local width, height = getCreativeSize(fileName, system.TemporaryDirectory)
                 return display.newImageRect(fileName, system.TemporaryDirectory, width, height)
             else
                 sequence = 0
