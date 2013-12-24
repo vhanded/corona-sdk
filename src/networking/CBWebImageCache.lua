@@ -15,6 +15,8 @@ local kCBImagesSubFolder = "images"
 
 local PARAM_NO_MEMORY_CACHE = "paramNoMemoryCache"
 
+local sequence = 0
+
 local CBWebImageCache = class(function(self)
     self.fileCache = {}  -- this is a table of functions that generate image DisplayObjects
     self.pendingDelegates = {}
@@ -126,14 +128,48 @@ local function fileExists(theFile, path)
     return false
 end
 
+
+local function getCreativeSize(sequence)
+
+    if display.contentWidth > display.contentHeight then
+        if sequence == 1 then
+            return 390, 200    
+        else
+            return 480, 320
+        end
+    else
+        if sequence == 1 then
+            return 320, 480    
+        else
+            return 240, 350
+        end
+    end
+end
+
+
+
+
 function CBWebImageCache:readCachedBitmapFromDisk(checksum)
     assert(type(checksum) == "string", "First parameter 'checksum' must be a string.")
     local fileName = self:fileName(checksum)
     if not fileExists(fileName, system.TemporaryDirectory) then
         return nil
     else
-        local mt = {__call = function()
-            return display.newImage(fileName, system.TemporaryDirectory)
+        local mt = {__call = function() 
+            
+            sequence = sequence + 1
+            -- if sequence is 0, it is background
+            print("filename", fileName, sequence)
+            if sequence == 1 or sequence == 2 then
+
+                -- change to new image rect, and specify size
+                local width, height = getCreativeSize(sequence)
+                return display.newImageRect(fileName, system.TemporaryDirectory, width, height)
+            else
+                sequence = 0
+                return display.newImage(fileName, system.TemporaryDirectory)
+            end
+
         end }
         local t = {checksum = checksum,
                    fileName = fileName,
