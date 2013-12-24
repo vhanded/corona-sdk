@@ -133,15 +133,15 @@ local function getCreativeSize(sequence)
 
     if display.contentWidth > display.contentHeight then
         if sequence == 1 then
-            return 390, 200    
-        else
             return 480, 320
+        else
+            return 390, 200    
         end
     else
         if sequence == 1 then
-            return 320, 480    
+            return 320, 480
         else
-            return 240, 350
+            return 240, 350        
         end
     end
 end
