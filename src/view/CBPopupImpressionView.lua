@@ -63,7 +63,7 @@ local CBPopupImpressionView = class(function(self, cbProxy, content)
         self.backgroundView:onViewUpdateRequired()
         self.content:onViewUpdateRequired()
     end
-    Runtime:addEventListener("orientation", self.onOrientationChange)
+    -- Runtime:addEventListener("orientation", self.onOrientationChange)
 
     -- Key listener
     self.onKeyEvent = function(event)

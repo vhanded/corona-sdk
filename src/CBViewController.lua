@@ -23,7 +23,7 @@ local CBViewController = class(function(self, cbProxy)
     self.onOrientationChange = function(event)
         self.orientation = CBOrientation.mapOrientation(event.type)
     end
-    Runtime:addEventListener("orientation", self.onOrientationChange)
+    --Runtime:addEventListener("orientation", self.onOrientationChange)
 end)
 
 function CBViewController:isAnyViewVisible()
