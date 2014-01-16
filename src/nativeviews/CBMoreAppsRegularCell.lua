@@ -35,7 +35,8 @@ local CBMoreAppsRegularCell = class(function(self, cbProxy, cellMeta, position, 
 
         local function createIcon(bitmap)
             local icon = CBRoundRectImageView(cbProxy, bitmap)
-            icon.group:setReferencePoint(display.CenterReferencePoint)
+            -- icon.group:setReferencePoint(display.CenterReferencePoint)
+            icon.group.anchorX = 0.5; icon.group.anchorY = 0.5
             icon.group.xScale = regularIconSize / icon.group.contentWidth
             icon.group.yScale = regularIconSize / icon.group.contentHeight
             icon.group.x = regularMargin + regularIconSize / 2.0
@@ -66,7 +67,8 @@ local CBMoreAppsRegularCell = class(function(self, cbProxy, cellMeta, position, 
         local text = cellMeta["name"] or "Unknown App"
         local textWidth = row.width - btn.group.contentWidth - regularMargin * 4 - regularIconSize
         local label = display.newText(rowGroup, text, 0, 0, textWidth, 0, native.systemFontBold, 16)
-        label:setReferencePoint(display.CenterLeftReferencePoint)
+        -- label:setReferencePoint(display.CenterLeftReferencePoint)
+        label.anchorX = 0; label.anchorY = 0.5
         label.x = regularMargin + regularIconSize + regularMargin * 0.75
         label.y = row.height * 0.5
         label:setTextColor(0, 0, 0, 255)
@@ -74,7 +76,8 @@ local CBMoreAppsRegularCell = class(function(self, cbProxy, cellMeta, position, 
 
         local delta = CBUtility.dpToPixels(1)
         local labelShadow = display.newText(rowGroup, text, 0, 0, textWidth, 0, native.systemFontBold, 16)
-        labelShadow:setReferencePoint(display.CenterLeftReferencePoint)
+        -- labelShadow:setReferencePoint(display.CenterLeftReferencePoint)
+        labelShadow.anchorX = 0; labelShadow.anchorY = 0.5;
         labelShadow.x = regularMargin + regularIconSize + regularMargin * 0.75 + delta
         labelShadow.y = row.height * 0.5 + delta
         labelShadow:setTextColor(0, 0, 0, 64)

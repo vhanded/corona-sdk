@@ -130,7 +130,8 @@ function CBUnderfinedProgressBar:createShape()
         {x = elementSize * 2, y = 0}, {x = elementSize, y = 0}, {x = 0, y = elementSize}}
 
     local elementShape = self:paintPoly(coords, 0, 0, {255, 255, 255, 255})
-    elementShape:setReferencePoint(display.TopLeftReferencePoint)
+    -- elementShape:setReferencePoint(display.TopLeftReferencePoint)
+    elementShape.anchorX = 0; element.anchorY = 0;
     self.group:insert(elementShape)
     return elementShape
 end
@@ -239,7 +240,8 @@ function CBUnderfinedProgressBar:paintPoly(poly, xoffset, yoffset, rgba)
         while i < int do
             local line = newLine(ints[i] + xoffset, y + yoffset, ints[i + 1] + xoffset, y + yoffset)
             polyGroup:insert(line)
-            line:setReferencePoint(display.TopLeftReferencePoint)
+            -- line:setReferencePoint(display.TopLeftReferencePoint)
+            line.anchorX = 0; line.anchorY = 0;
             line:setColor(rgba[1], rgba[2], rgba[3], rgba[4])
             i = i + 2
         end
