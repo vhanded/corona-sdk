@@ -23,7 +23,7 @@ local CBMoreAppsWebViewCell = require "chartboost.nativeviews.CBMoreAppsWebViewC
 local CBUtility = require "chartboost.libraries.CBUtility"
 
 local widget = require "widget"
-local TABLE_BGCOLOR = {0xE3, 0xE3, 0xE3, 255}
+local TABLE_BGCOLOR = {0xE3/255, 0xE3/255, 0xE3/255, 255/255}
 
 local kCBNativeMoreAppsHeaderHeight = CBUtility.dpToPixels(50)
 local kCBNativeMoreAppsCloseButtonWidth = CBUtility.dpToPixels(50)

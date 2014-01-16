@@ -8,8 +8,8 @@
 --   Supply a height and a method to listen for clicks and the method returns a row for use in tableview widgets
 --
 
-local COLOR_GRADIENT_TOP = {0xE9, 0xE9, 0xE9}
-local COLOR_GRADIENT_BOTTOM = {0xDC, 0xDC, 0xDC}
+local COLOR_GRADIENT_TOP = {0xE9/255, 0xE9/255, 0xE9/255}
+local COLOR_GRADIENT_BOTTOM = {0xDC/255, 0xDC/255, 0xDC/255}
 
 local function baseCell(rowHeight, onClick)
     assert(type(rowHeight) == "number", "First parameter 'rowHeight' must be a number.")
@@ -35,12 +35,13 @@ local function baseCell(rowHeight, onClick)
         local bg = display.newRect(rowGroup, 0, 0, row.width, row.height)
         local gradient = graphics.newGradient(COLOR_GRADIENT_TOP, COLOR_GRADIENT_BOTTOM)
         bg:setFillColor(gradient)
+        bg.x = display.contentCenterX; bg.y = display.contentCenterY;
 
         -- borders
         local borderTop = display.newRect(rowGroup, 0, 0, row.width, 1)
-        borderTop:setFillColor(0xF4, 0xF4, 0xF4, 255)
+        borderTop:setFillColor(0xF4/255, 0xF4/255, 0xF4/255, 255/255)
         local borderBottom = display.newRect(rowGroup, 0, row.height - 1, row.width, 1)
-        borderBottom:setFillColor(0xCC, 0xCC, 0xCC, 255)
+        borderBottom:setFillColor(0xCC/255, 0xCC/255, 0xCC/255, 255/255)
     end
 
     return {
@@ -48,7 +49,7 @@ local function baseCell(rowHeight, onClick)
         onRender = onRowRender,
         rowHeight = rowHeight,
         isCategory = false,
-        lineColor = {0, 0, 0, 255}
+        lineColor = {0, 0, 0, 255/255}
     }
 end
 

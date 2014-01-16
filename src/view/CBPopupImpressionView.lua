@@ -25,6 +25,7 @@ local CBPopupImpressionView = class(function(self, cbProxy, content)
     self.clickBlocker.isHitTestable = true -- Only needed if alpha is 0
     self.clickBlocker:addEventListener("touch", function() return true end)
     self.clickBlocker:addEventListener("tap", function() return true end)
+    self.clickBlocker.x = display.contentCenterX; self.clickBlocker.y = display.contentCenterY
     self.group:insert(self.clickBlocker)
 
     self.content = content

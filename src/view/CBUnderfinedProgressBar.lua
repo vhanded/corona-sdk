@@ -36,7 +36,7 @@ local CBUnderfinedProgressBar = class(function(self, x, y, width, height)
 
     self.capsule = display.newRoundedRect(inset, inset, self.width - 2 * inset, self.height - 2 * inset, self.cornerRadius)
     self.capsule.strokeWidth = kCBProgressBarOutlineWidth * density
-    self.capsule:setStrokeColor(255, 255, 255)
+    self.capsule:setStrokeColor(255/255, 255/255, 255/255)
     self.capsule:setFillColor(0, 0, 0, 0)
 
     self.shapes = {}
@@ -131,7 +131,7 @@ function CBUnderfinedProgressBar:createShape()
 
     local elementShape = self:paintPoly(coords, 0, 0, {255, 255, 255, 255})
     -- elementShape:setReferencePoint(display.TopLeftReferencePoint)
-    elementShape.anchorX = 0; element.anchorY = 0;
+    elementShape.anchorX = 0; elementShape.anchorY = 0;
     self.group:insert(elementShape)
     return elementShape
 end
@@ -242,7 +242,7 @@ function CBUnderfinedProgressBar:paintPoly(poly, xoffset, yoffset, rgba)
             polyGroup:insert(line)
             -- line:setReferencePoint(display.TopLeftReferencePoint)
             line.anchorX = 0; line.anchorY = 0;
-            line:setColor(rgba[1], rgba[2], rgba[3], rgba[4])
+            line:setColor(rgba[1]/255, rgba[2]/255, rgba[3]/255, rgba[4]/255)
             i = i + 2
         end
     end

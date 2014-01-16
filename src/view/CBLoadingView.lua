@@ -34,7 +34,7 @@ function CBLoadingView:tryLayout()
         self.group:insert(self.label)
         -- self.label:setReferencePoint(display.CenterReferencePoint)
         self.label.anchorX = 0.5; self.label.anchorY = 0.5;
-        self.label:setTextColor(255, 255, 255, 255)
+        self.label:setTextColor(255/255, 255/255, 255/255, 255/255)
     end
     self.label.x = w*0.5;
     self.label.y = h*0.5 - margin * 0.65

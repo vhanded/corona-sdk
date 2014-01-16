@@ -13,8 +13,8 @@ local class = require "chartboost.libraries.lib.class"
 local CBUtility = require "chartboost.libraries.CBUtility"
 
 local FONT_SIZE = 16
-local COLOR_TEXT = {255, 255, 255}
-local COLOR_TEXT_SHADOW = {0x00, 0x4B, 0x73}
+local COLOR_TEXT = {255/255, 255/255, 255/255}
+local COLOR_TEXT_SHADOW = {0x00/255, 0x4B/255, 0x73/255}
 
 local CBActionButton = class(function(self, cbProxy, text, height, onClick)
     self.cbProxy = cbProxy
@@ -79,6 +79,7 @@ local CBActionButton = class(function(self, cbProxy, text, height, onClick)
     self.clickBlocker = display.newRect(self.group, 0, 0, self.group.contentWidth, self.group.contentHeight)
     self.clickBlocker.alpha = 0
     self.clickBlocker.isHitTestable = true -- Only needed if alpha is 0
+    self.clickBlocker.x = display.contentCenterX; self.clickBlocker.y = display.contentCenterY;
     local inBtn = false
     self.clickBlocker:addEventListener("touch", function(event)
         if event.phase == "began" then

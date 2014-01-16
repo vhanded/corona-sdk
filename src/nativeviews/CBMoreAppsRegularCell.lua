@@ -71,7 +71,7 @@ local CBMoreAppsRegularCell = class(function(self, cbProxy, cellMeta, position, 
         label.anchorX = 0; label.anchorY = 0.5
         label.x = regularMargin + regularIconSize + regularMargin * 0.75
         label.y = row.height * 0.5
-        label:setTextColor(0, 0, 0, 255)
+        label:setTextColor(0, 0, 0, 255/255)
         row.label = label
 
         local delta = CBUtility.dpToPixels(1)
@@ -80,7 +80,7 @@ local CBMoreAppsRegularCell = class(function(self, cbProxy, cellMeta, position, 
         labelShadow.anchorX = 0; labelShadow.anchorY = 0.5;
         labelShadow.x = regularMargin + regularIconSize + regularMargin * 0.75 + delta
         labelShadow.y = row.height * 0.5 + delta
-        labelShadow:setTextColor(0, 0, 0, 64)
+        labelShadow:setTextColor(0, 0, 0, 64/255)
         row.labelShadow = labelShadow
         row.label:toFront()
     end

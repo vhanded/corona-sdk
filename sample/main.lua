@@ -9,7 +9,8 @@ local cb = require "ChartboostSDK.chartboost"
 local background
 local onOrientationChange = function(orientation)
     if background then background:removeSelf() end
-    background = display.newRect(0, 0, display.contentWidth, display.contentHeight)
+    background = display.newRect(0, 0, display.actualContentWidth, display.actualContentHeight)
+    background.x = display.contentCenterX; background.y = display.contentCenterY
     background:setFillColor(96, 96, 255, 255)
     background:toBack()
 end

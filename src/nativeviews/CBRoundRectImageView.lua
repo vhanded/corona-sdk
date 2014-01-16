@@ -29,7 +29,7 @@ local CBRoundRectImageView = class(function(self, cbProxy, bitmap)
     self.outline = display.newRoundedRect(self.group, 0, 0,
         self.image.contentWidth, self.image.contentHeight, CORNER_RADIUS)
     self.outline.strokeWidth = STROKE_WIDTH
-    self.outline:setStrokeColor(0, 0, 0, 255)
+    self.outline:setStrokeColor(0, 0, 0, 255/255)
     self.outline:setFillColor(0, 0, 0, 0)
     --[[
     -- this mask approach didn't seem to work to well
