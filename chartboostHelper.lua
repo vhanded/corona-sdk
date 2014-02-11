@@ -60,4 +60,15 @@ end
 
 
 
+
+--------------------------------------------------------------------------------
+-- cache ad
+--------------------------------------------------------------------------------
+function chartBoostHelper.cacheAd()
+    cb.cacheInterstitial()
+end
+
+
+
+
 return chartBoostHelper
