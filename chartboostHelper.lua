@@ -65,6 +65,9 @@ end
 -- cache ad
 --------------------------------------------------------------------------------
 function chartBoostHelper.cacheAd()
+
+    genericCallback = function()end
+
     cb.cacheInterstitial()
 end
 
