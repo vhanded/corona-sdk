@@ -1,4 +1,4 @@
-local cb = require ("vendor.chartboostSDK.dist.chartboost")
+local cb = require ("vendor.ChartboostSDK.dist.chartboost")
 
 
 local chartBoostHelper = {}
